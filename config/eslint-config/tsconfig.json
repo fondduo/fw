@@ -1,0 +1,23 @@
+{
+  "extends": "@fondduo/tsconfig",
+  "compilerOptions": {
+    "outDir": "lib",
+    "rootDir": "src",
+    "declaration": true,
+    "declarationMap": true,
+    "declarationDir": "types",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": [
+    "src/**/*",
+    "rollup.config.js"
+  ],
+  "exclude": [
+    "lib",
+    "test",
+    "node_modules"
+  ]
+}

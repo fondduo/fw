@@ -1,0 +1,10 @@
+{
+  "mode": "pre",
+  "tag": "alpha",
+  "initialVersions": {
+    "@fondduo/eslint-config": "0.0.1-alpha.0",
+    "@fondduo/tsconfig": "0.0.1-alpha.0",
+    "@fondduo/types": "0.0.1-alpha.0"
+  },
+  "changesets": []
+}

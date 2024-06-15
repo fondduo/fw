@@ -1,0 +1,65 @@
+{
+  "name": "@fondduo/fw",
+  "version": "0.0.1-alpha.0",
+  "description": "Basic types used by @fondduo/fw",
+  "type": "module",
+  "types": "lib/index.d.ts",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "package.json",
+    "!*.map"
+  ],
+  "bin": {
+    "fw-date": "lib/fw-date.js",
+    "fw-editor": "lib/fw-editor.js",
+    "fw": "lib/generator.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prepublishOnly": "pnpm build",
+    "generate": "pnpm lint --fix && pnpm es && pnpm build",
+    "es": "tsc -b",
+    "build": "rollup -c ./build/rollup.config.js",
+    "lint": "eslint --quiet src/**/*.ts",
+    "test:watch-date": "watch-date /Users/fondk/Documents/private/fw/packages/watch-date/test test.js UTF-8 js"
+  },
+  "author": "fondduo",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fondduo/fw.git",
+    "directory": "packages/watchers"
+  },
+  "bugs": {
+    "url": "https://github.com/fondduo/fw/issues"
+  },
+  "homepage": "https://github.com/fondduo/fw#readme",
+  "devDependencies": {
+    "@fondduo/types": "workspace:*",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/inquirer": "^9.0.7",
+    "@types/semver": "^7.5.8",
+    "rollup": "^4.18.0",
+    "rollup-plugin-delete": "^2.0.0",
+    "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-globals": "^1.4.0",
+    "tslib": "^2.6.3",
+    "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "dayjs": "^1.11.11",
+    "inquirer": "^9.2.23",
+    "semver": "^7.6.2"
+  }
+}

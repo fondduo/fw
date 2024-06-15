@@ -1,0 +1,50 @@
+{
+  "name": "@fondduo/fw-monorepo",
+  "version": "0.0.1-alpha.0",
+  "description": "jetbrains fw generate",
+  "scripts": {
+    "prepare": "husky && echo 'pnpx --no -- commitlint --edit $1' > .husky/pre-commit",
+    "commit": "git add . && cz",
+    "fw:generate": "pnpm --filter fw generate && pnpm install",
+    "types:build": "pnpm --filter types build",
+    "test": ""
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
+  },
+  "workspaces": [
+    "packages/*",
+    "config/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fondduo/fw.git"
+  },
+  "keywords": [
+    "jetbrains",
+    "watcher"
+  ],
+  "author": "fondduo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fondduo/fw/issues"
+  },
+  "homepage": "https://github.com/fondduo/fw#readme",
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.5.0",
+    "@changesets/cli": "^2.27.5",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@fondduo/eslint-config": "workspace:*",
+    "@fondduo/tsconfig": "workspace:*",
+    "@fondduo/fw": "workspace:*",
+    "commitizen": "^4.3.0",
+    "cz-customizable": "^7.0.0",
+    "husky": "^9.0.11"
+  },
+  "engines": {
+    "node": ">= 16"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "extends": "@fondduo/tsconfig",
+  "compilerOptions": {
+    "outDir": "lib/dist",
+    "rootDir": "src",
+    "declaration": true,
+    "declarationMap": true,
+    "declarationDir": "lib/types",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "program/*": ["src/program/*"],
+      "utils/*": ["src/utils/*"]
+    }
+  },
+  "include": [
+    "build/**/*",
+    "src/**/*",
+    "test/**/*"
+  ],
+  "exclude": [
+    "lib",
+    "node_modules"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "name": "@fondduo/types",
+  "version": "0.0.1-alpha.0",
+  "description": "Basic types used by @fondduo/fw",
+  "main": "lib/index.d.ts",
+  "type": "module",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "!*.map"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prepublishOnly": "pnpm build",
+    "build": "tsc --build && pnpm run lint --fix",
+    "lint": "eslint src/**/*.ts"
+  },
+  "author": "fondduo",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fondduo/fw.git",
+    "directory": "packages/types"
+  },
+  "bugs": {
+    "url": "https://github.com/fondduo/fw/issues"
+  },
+  "homepage": "https://github.com/fondduo/fw#readme",
+  "devDependencies": {
+    "@fondduo/types": "workspace:*"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}
