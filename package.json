@@ -3,7 +3,8 @@
   "version": "0.0.1-alpha.0",
   "description": "jetbrains fw generate",
   "scripts": {
-    "prepare": "husky && echo 'pnpx --no -- commitlint --edit $1' > .husky/pre-commit",
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "husky && echo 'commitlint -e $1' > .husky/commit-msg",
     "commit": "git add . && cz",
     "fw:generate": "pnpm --filter fw generate && pnpm install",
     "types:build": "pnpm --filter types build",
@@ -38,11 +39,12 @@
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@fondduo/eslint-config": "workspace:*",
-    "@fondduo/tsconfig": "workspace:*",
     "@fondduo/fw": "workspace:*",
+    "@fondduo/tsconfig": "workspace:*",
     "commitizen": "^4.3.0",
     "cz-customizable": "^7.0.0",
-    "husky": "^9.0.11"
+    "husky": "^9.0.11",
+    "typescript": "^5.4.5"
   },
   "engines": {
     "node": ">= 16"

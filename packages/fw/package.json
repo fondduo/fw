@@ -49,8 +49,7 @@
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-node-globals": "^1.4.0",
-    "tslib": "^2.6.3",
-    "typescript": "^5.4.5"
+    "tslib": "^2.6.3"
   },
   "engines": {
     "node": ">=16"
