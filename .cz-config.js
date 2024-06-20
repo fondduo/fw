@@ -46,11 +46,11 @@ module.exports = {
   ],
 
   scopes: [
-    'eslint',
-    'tsconfig',
-    'cz',
     'fw',
     'types',
+    'cz',
+    'eslint',
+    'tsconfig',
   ],
 
   scopeOverrides: {
