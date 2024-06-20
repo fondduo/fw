@@ -1,18 +1,13 @@
 import semver from 'semver';
 import chalk from 'chalk';
-import { exit, version } from 'process';
+import { version } from 'process';
 
-function checkNodeVersion(wanted: string, id: string) {
+const checkNodeVersion = (wanted: string, id: string) => new Promise<void>((resolve, reject) => {
   if (!semver.satisfies(version, wanted, { includePrerelease: true })) {
-    console.log(chalk.red(
-      `You are using Node ${version} , but this version of ${id} requires Node ${wanted}.\nPlease upgrade your Node version.`,
-    ));
-    exit(1);
+    reject(new Error(`${chalk.red(`当前Node版本：${version}`)}\n${chalk.green(`${id}要求Node版本：${wanted}`)}\n${chalk.bgBlue('请升级你的 Node 版本！！！')}`));
   } else {
-    console.log(chalk.green(
-      `node version: ${version}`,
-    ));
+    resolve();
   }
-}
+});
 
 export default checkNodeVersion;

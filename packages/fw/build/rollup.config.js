@@ -6,36 +6,16 @@ import del from 'rollup-plugin-delete';
 import globals from 'rollup-plugin-node-globals';
 import { defineConfig } from 'rollup';
 import path from 'path';
-import fs from 'fs';
 import { fileURLToPath } from 'url';
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 const resolveFile = (p) => path.join(dirname, '..', p);
-const watchersDir = resolveFile('src/watchers');
-const watchersDirs = fs.readdirSync(watchersDir);
-
-const generateBinsInputs = () => {
-  const inputs = {};
-  watchersDirs.forEach((d) => {
-    inputs[`fw-${d}`] = path.join(watchersDir, d, 'index.ts');
-  });
-  return inputs;
-};
-
-const generateTypesInputs = () => {
-  const inputs = {};
-  watchersDirs.forEach((d) => {
-    inputs[d] = path.join(resolveFile('lib/types/watchers'), d, 'index.d.ts');
-  });
-  return inputs;
-};
 
 const config = defineConfig([
   {
     input: {
-      ...generateBinsInputs(),
-      generator: resolveFile('src/generator/index.ts'),
+      fw: resolveFile('src/index.ts'),
     },
     output: [
       {
@@ -60,8 +40,7 @@ const config = defineConfig([
   },
   {
     input: {
-      ...generateTypesInputs(),
-      generator: resolveFile('lib/types/generator/index.d.ts'),
+      generator: resolveFile('lib/types/index.d.ts'),
     },
     output: {
       dir: resolveFile('lib'),

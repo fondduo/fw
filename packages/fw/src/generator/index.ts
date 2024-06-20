@@ -1,29 +1,25 @@
-import checkNodeVersion from 'utils/check-node-version';
-import { program } from 'commander';
-import { argv } from 'process';
-import {
-  genAction, genAllXmlOption, genWatchDateXmlOption, genWatchEditorXmlOption,
-} from './generate';
-import pkg from '../../package.json';
+import { Option, program } from 'commander';
+import type { GenOptions } from '@fondduo/types';
+import { handleQuestions } from './questions';
 
-checkNodeVersion(pkg?.engines?.node ?? 'unknown', '@fondduo/watcher');
+export const genWatchDateXmlOption = new Option('--date <date-formatter>', '配置watch-date')
+  .conflicts([
+    'all',
+  ]);
+export const genWatchEditorXmlOption = new Option('--editor <editor>', '配置watch-editor')
+  .conflicts([
+    'all',
+  ]);
 
-program
-  .name('fw-gen')
-  .description('生成 jetbrains fw xml 配置文件')
-  .version(`@fondduo/watcher version: ${pkg.version}`, '-v, --version', '版本信息');
-program
-  .option('-l, --list', '显示所有支持的配置')
-  .option('-d, --debug', '调试模式')
-  .action((options) => {
-    console.log(options, program.opts());
-  });
-program.command('generate')
-  .alias('gen')
-  .description('gen develop configs')
-  .addOption(genAllXmlOption)
-  .addOption(genWatchDateXmlOption)
-  .addOption(genWatchEditorXmlOption)
-  .action(genAction);
+export const genAllXmlOption = new Option('-a, --all', '生成全部xml配置');
+export const genAction = (options: GenOptions) => {
+  console.log(options);
+  handleQuestions(options, program.opts());
+};
 
-program.parse(argv);
+export default {
+  genAllXmlOption,
+  genWatchDateXmlOption,
+  genWatchEditorXmlOption,
+  genAction,
+};

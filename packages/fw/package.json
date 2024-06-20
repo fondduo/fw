@@ -11,18 +11,15 @@
     "!*.map"
   ],
   "bin": {
-    "fw-date": "lib/fw-date.js",
-    "fw-editor": "lib/fw-editor.js",
-    "fw": "lib/generator.js"
+    "fw": "lib/fw.js"
   },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
     "prepublishOnly": "pnpm build",
-    "generate": "pnpm lint --fix && pnpm es && pnpm build",
+    "build": "pnpm lint --fix && pnpm es && rollup -c ./build/rollup.config.js",
     "es": "tsc -b",
-    "build": "rollup -c ./build/rollup.config.js",
     "lint": "eslint --quiet src/**/*.ts",
     "test:watch-date": "watch-date /Users/fondk/Documents/private/fw/packages/watch-date/test test.js UTF-8 js"
   },
@@ -59,6 +56,7 @@
     "commander": "^12.1.0",
     "dayjs": "^1.11.11",
     "inquirer": "^9.2.23",
+    "loglevel": "^1.9.1",
     "semver": "^7.6.2"
   }
 }
