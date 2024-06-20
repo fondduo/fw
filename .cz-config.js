@@ -53,15 +53,6 @@ module.exports = {
     'tsconfig',
   ],
 
-  scopeOverrides: {
-    fix: [
-      { name: 'merge' },
-      { name: 'style' },
-      { name: 'e2eTest' },
-      { name: 'unitTest' },
-    ],
-  },
-
   messages: {
     type: '请选择提交的类型：',
     scope: '请选择一个scope（可选）',
