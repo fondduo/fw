@@ -5,8 +5,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky && echo 'commitlint -e $1' > .husky/commit-msg",
-    "commit": "git add . && cz",
-    "fw:generate": "pnpm --filter fw generate && pnpm install",
+    "fw:build": "pnpm types:build && pnpm --filter fw build && pnpm install",
     "types:build": "pnpm --filter types build",
     "test": ""
   },
@@ -25,7 +24,7 @@
   },
   "keywords": [
     "jetbrains",
-    "watcher"
+    "file watcher"
   ],
   "author": "fondduo",
   "license": "ISC",

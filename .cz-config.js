@@ -50,6 +50,7 @@ module.exports = {
     'tsconfig',
     'cz',
     'fw',
+    'types',
   ],
 
   scopeOverrides: {
