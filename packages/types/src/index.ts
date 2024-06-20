@@ -1,2 +1,3 @@
 export * from './packages';
-export * from './watchers';
+export * from './generate';
+export * from './program';
