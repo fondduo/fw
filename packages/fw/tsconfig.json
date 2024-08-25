@@ -17,7 +17,8 @@
   "include": [
     "build/**/*",
     "src/**/*",
-    "test/**/*"
+    "test/**/*",
+    "package.json"
   ],
   "exclude": [
     "lib",

@@ -2,5 +2,4 @@ prefer-workspace-packages: true
 packages:
   - 'packages/*'
   - 'config/*'
-  - '__typings__'
   - '!**/test/**'
